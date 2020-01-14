@@ -1,0 +1,22 @@
+.App{
+  margin: auto;
+
+}
+.title{
+  display: flex;
+  justify-content: center;
+}
+
+.list{
+  list-style: none;
+}
+.container{
+  display: flex;
+  justify-content: center;
+}
+.city-item{ 
+padding: 20px;
+margin: 30px;
+border: 1px solid black;
+width: 350px;
+}
