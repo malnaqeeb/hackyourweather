@@ -2,7 +2,7 @@ import React from "react";
 
 const CityInfo = ({ cityProps }) => {
   return (
-    <li className="city-item">
+    <li className="list-items">
       <div>
         <h3>
           {cityProps.name}, {cityProps.sys.country}

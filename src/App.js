@@ -4,8 +4,8 @@ import CitiesList from "./components/CitiesList";
 
 function App() {
   return (
-    <div className="App">
-      <h2 className="title">Weather</h2>
+    <div>
+      <h1 className="title">Weather</h1>
       <div>
         <CitiesList />
       </div>

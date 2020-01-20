@@ -1,22 +1,37 @@
-.App{
+h1 {
   margin: auto;
-
+  display: flex;
+  justify-content: center;
 }
-.title{
+.status {
+  margin: auto;
   display: flex;
   justify-content: center;
 }
 
-.list{
+.form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 300px;
+}
+
+.items {
+  border: solid 2px black;
+  margin: 20px auto;
   list-style: none;
+  width: 300px;
+  padding: 20px;
 }
-.container{
+
+.input-text {
+  margin: 10px;
   display: flex;
   justify-content: center;
 }
-.city-item{ 
-padding: 20px;
-margin: 30px;
-border: 1px solid black;
-width: 350px;
+.input-submit {
+  margin: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
 }
