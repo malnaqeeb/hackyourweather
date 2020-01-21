@@ -7,13 +7,12 @@ const CitiesList = () => {
   const [weather, setWeather] = useState({});
   const [status, setStatus] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const appid = "eb076c099e2e95f7dc6a0f2dbe0761ae";
   async function getCity(city) {
     setErrorMessage("");
     setStatus("loading");
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -21,21 +20,21 @@ const CitiesList = () => {
         setWeather(data);
         setStatus("success");
         setErrorMessage("");
-      } else {
+      } 
+      else {
         setErrorMessage("Please insert valid city name");
         setStatus("");
       }
     } catch (error) {
       setStatus("error");
-      setErrorMessage(error.message);
+      setErrorMessage('Error: Failed to fetch');
     }
   }
   return (
     <div className="city-item">
       <Form getCity={getCity} />
       {status === "loading" && <h2 className="status">Loading....</h2>}
-      {status === "error" && <h2>{errorMessage}</h2>}
-      {errorMessage !== "" && <h1>{errorMessage}</h1>}
+      {(status === "error" || errorMessage !== "") && <h1>{errorMessage}</h1>}
       {status === "success" && (
         <div className="items">
           <CityInfo cityProps={weather} />
