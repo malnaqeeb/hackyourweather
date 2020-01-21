@@ -3,6 +3,12 @@ h1 {
   display: flex;
   justify-content: center;
 }
+h2 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+}
 .status {
   margin: auto;
   display: flex;
