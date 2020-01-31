@@ -18,8 +18,9 @@ function Form({ getCity }) {
         value={city}
         required
         onChange={e => setCity(e.target.value)}
-      />
-      <input className="input-submit" type="submit" value="Search" />
+      >
+      </input>
+      <input className="input-submit" type="submit" value="search" />
     </form>
   );
 }

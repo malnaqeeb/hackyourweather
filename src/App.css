@@ -41,3 +41,7 @@ h2 {
   display: flex;
   justify-content: center;
 }
+.btn {
+  position: absolute;
+  float: right;
+}

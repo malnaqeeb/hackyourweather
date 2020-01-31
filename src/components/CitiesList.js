@@ -3,13 +3,15 @@ import CityInfo from "./CityInfo";
 import Form from "./Form";
 
 const CitiesList = () => {
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState([]);
   const [status, setStatus] = useState("");
-  const [welcome, setWelcome] = useState('Welcome to my app, type city name to show currently weather information ')
+  const [welcome, setWelcome] = useState(
+    "Welcome to my app, type city name to show currently weather information "
+  );
   const [errorMessage, setErrorMessage] = useState("");
   async function getCity(city) {
     setErrorMessage("");
-    setWelcome('')
+    setWelcome("");
     setStatus("loading");
     try {
       const response = await fetch(
@@ -17,7 +19,7 @@ const CitiesList = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setWeather(data);
+        setWeather([data,...weather]);
         setStatus("success");
         setErrorMessage("");
       } else {
@@ -29,17 +31,24 @@ const CitiesList = () => {
       setErrorMessage("Error: Failed to fetch");
     }
   }
+  function deleteCity(ID) {
+    const removedItem = weather.filter(weather => weather.id !== ID);
+    setWeather(removedItem);
+  }
+  
   return (
     <div className="city-item">
       <Form getCity={getCity} />
       <h2>{welcome}</h2>
       {status === "loading" && <h2 className="status">Loading....</h2>}
       {(status === "error" || errorMessage !== "") && <h1>{errorMessage}</h1>}
-      {status === "success" && (
-        <div className="items">
-          <CityInfo cityProps={weather} />
-        </div>
-      )}
+      <ul>{status === "success" && 
+        weather.map(city => (
+        <li className="items" key={city.id}>
+          <CityInfo city={city} deleteCity={deleteCity}/>
+        </li>        
+      ))}
+    </ul>
     </div>
   );
 };

@@ -1,26 +1,36 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
-const CityInfo = ({ cityProps }) => {
+const CityInfo = ({ city, deleteCity }) => {
   return (
-    <li className="list-items">
+    <div className="list-items">
+      <Button
+        className="btn"
+        onClick={() => {
+          deleteCity(city.id);
+        }}
+      >
+        <HighlightOffIcon />{" "}
+      </Button>
       <div>
         <h3>
-          {cityProps.name}, {cityProps.sys.country}
+          {city.name}, {city.sys.country}
         </h3>
       </div>
       <br />
 
-      <div>{cityProps.weather[0].main}</div>
-      <div>{cityProps.weather[0].description}</div>
+      <div>{city.weather[0].main}</div>
+      <div>{city.weather[0].description}</div>
 
       <br />
-      <div>max temp : {cityProps.main.temp_max}</div>
-      <div>min temp : {cityProps.main.temp_min}</div>
+      <div>max temp : {city.main.temp_max}</div>
+      <div>min temp : {city.main.temp_min}</div>
       <br />
       <div>
-        location : {cityProps.coord.lat}, {cityProps.coord.lon}
+        location : {city.coord.lat}, {city.coord.lon}
       </div>
-    </li>
+    </div>
   );
 };
 
