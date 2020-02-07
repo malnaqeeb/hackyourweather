@@ -45,3 +45,20 @@ h2 {
   position: absolute;
   float: right;
 }
+.close-btn {
+  float: right;
+  margin-right: 50px;
+}
+.chart-name {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.chart {
+  margin: 50px auto;
+}
+.chart-btn{
+  float: right;
+  margin-bottom: 150px;
+}
